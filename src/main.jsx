@@ -5,7 +5,7 @@ import ThemeContext from './context/theme'
 import NotificationsProvider from './context/notifications';
 import { ConsultaArbol } from "./pages/queries/ConsultaArbol";
 import './index.css'
-// import App from './App.jsx'
+// import { App } from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

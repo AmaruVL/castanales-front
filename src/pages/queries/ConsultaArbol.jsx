@@ -26,9 +26,9 @@ export const ConsultaArbol = () => {
         <div className="flex justify-between">
           <div>
             <Title value="Datos de la parcela" Icon={LocationOnRounded} />
-            <Subtitle subtitle="Código: " value={dataExample.codigo}/>
+            <Subtitle value="Código: " content={dataExample.codigo}/>
             <div>
-              <Subtitle subtitle="Ubicación"/>
+              <Subtitle value="Ubicación"/>
               <div className="ml-3">
                 <Subtitle value="Sector:" content={dataExample.ubicacion.sector}/>
                 <Subtitle value="Distrito:" content={dataExample.ubicacion.distrito}/>
@@ -37,7 +37,7 @@ export const ConsultaArbol = () => {
               </div>
             </div>
             <Subtitle value="Nombre del área castañera:" content={dataExample.nombreAreaCastanera} />
-            <Subtitle value="Nro. de contrato" content={dataExample.nroContrato}/>
+            <Subtitle value="Nro. de contrato:" content={dataExample.nroContrato}/>
           </div>
           <figure className="w-1/5 aspect-square max-md:hidden self-center">
             <img src={qrExample} />
