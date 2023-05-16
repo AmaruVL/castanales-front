@@ -1,13 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { ConsultaArbol } from './pages/query/ConsultaArbol'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import TokenProvider from './context/core/TokenContext';
+import ThemeContext from './context/theme'
+import NotificationsProvider from './context/notifications';
+import { ConsultaArbol } from "./pages/query/ConsultaArbol";
+import './index.css'
 // import App from './App.jsx'
-// import './index.css'
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <App /> */}
-    <ConsultaArbol/>
-  </React.StrictMode>,
-)
+    <NotificationsProvider>
+      <ThemeContext>
+        <TokenProvider>
+          {/* <App /> */}
+          <ConsultaArbol />
+        </TokenProvider>
+      </ThemeContext>
+    </NotificationsProvider>
+  </React.StrictMode>
+);

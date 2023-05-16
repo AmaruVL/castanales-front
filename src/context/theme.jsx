@@ -20,7 +20,7 @@ export default function ThemeContext ({ children }) {
         palette: {
           primary: {
             // light: will be calculated from palette.primary.main,
-            main: '#217E93',
+            main: '#477961',
             // dark: will be calculated from palette.primary.main,
             // contrastText: will be calculated to contrast with palette.primary.main
           }
