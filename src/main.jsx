@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import TokenProvider from './context/core/TokenContext';
 import ThemeContext from './context/theme'
 import NotificationsProvider from './context/notifications';
-import { ConsultaArbol } from "./pages/query/ConsultaArbol";
+import { ConsultaArbol } from "./pages/queries/ConsultaArbol";
 import './index.css'
 // import App from './App.jsx'
 
