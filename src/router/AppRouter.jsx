@@ -1,21 +1,18 @@
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
-import { Inicio } from "../pages/home/Inicio";
-import { Error } from "../pages/error/Error";
-import { ConsultaArbol } from "../pages/queries/ConsultaArbol";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Inicio } from '../pages/home/Inicio';
+import { Error } from '../pages/error/Error';
+import { ConsultaTraza } from '../pages/queries/ConsultaTraza';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Inicio/> ,
-    errorElement: <Error/>,
+    path: '/',
+    element: <Inicio />,
+    errorElement: <Error />,
   },
   {
-    path: "/consultatraza/:idArbol",
-    element: <ConsultaArbol/>
-  }
+    path: '/consultatraza/:idArbol',
+    element: <ConsultaTraza />,
+  },
 ]);
 
 export const AppRouter = () => {
