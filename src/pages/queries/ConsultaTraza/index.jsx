@@ -13,10 +13,10 @@ export const ConsultaTraza = () => {
           Consulta de traza
         </Typography>
       </div>
-      <div className="my-4 md:w-4/5 flex self-center">
+      <div className="mt-4 mb-8 md:w-4/5 self-center">
         <PaginaTraza />
       </div>
-      <div className="relative flex justify-center max-h-[200px]">
+      <div className="relative flex justify-center max-h-[160px]">
         <img className="object-cover object-top w-full" src={waveBottom} />
         <Typography className="text-[#fff] max-md:text-sm absolute bottom-4 max-sm:bottom-2">
           Todos los derechos reservados - 2023

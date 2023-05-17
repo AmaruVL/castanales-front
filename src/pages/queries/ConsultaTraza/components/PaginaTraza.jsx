@@ -1,5 +1,5 @@
-import { Divider, Paper } from '@mui/material';
-import qrExample from '../../../../assets/qrs/qrExample.svg';
+import { CircularProgress, Divider, Paper } from '@mui/material';
+// import qrExample from '../../../../assets/qrs/qrExample.svg';
 import {
   DatosParcela,
   DatosComunero,
@@ -9,18 +9,34 @@ import {
 } from './';
 import { useGetTrazaByIdArbol } from '../../../../hooks/useTraza';
 import { useParams } from 'react-router-dom';
+import { generateQR } from '../../../../helpers/qrCode';
 
 export const PaginaTraza = () => {
   const { idArbol } = useParams();
-  const { data = [] } = useGetTrazaByIdArbol(idArbol);
-  // const currentURL = window.location.href
-  // console.log(currentURL)
+  const { data = [], isLoading, isSuccess } = useGetTrazaByIdArbol(idArbol);
+
+  if (isLoading) {
+    return (
+      <div className="mt-5 flex gap-3 h-screen">
+        <CircularProgress size={25} sx={{ color: '#477961' }} />
+        <span>Buscando...</span>
+      </div>
+    );
+  }
+  if (!isSuccess) {
+    return <h1 className="mt-5 h-screen">No se encontró información </h1>;
+  }
+
+  // Generar codigo QR
+  const currentURL = window.location.href
+  const qrCode = generateQR(currentURL)
+
   return (
     <Paper className="p-5 flex flex-col drop-shadow-2xl" elevation={0}>
       <div className="flex justify-between">
         <DatosParcela data={data} />
         <figure className="w-1/5 mr-5 aspect-square max-md:hidden self-center">
-          <img src={qrExample} />
+          <img src={qrCode} />
         </figure>
       </div>
       <Divider className="my-3" />
@@ -32,7 +48,7 @@ export const PaginaTraza = () => {
       <Divider className="my-3" />
       <Observaciones data={data} />
       <figure className="w-2/5 max-w-[150px] aspect-square md:hidden self-center ">
-        <img src={qrExample} />
+        <img src={qrCode} />
       </figure>
     </Paper>
   );
