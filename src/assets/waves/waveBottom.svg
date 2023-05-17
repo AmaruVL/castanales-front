@@ -1,1 +1,11 @@
-<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#477961" fill-opacity="1" d="M0,32L40,42.7C80,53,160,75,240,96C320,117,400,139,480,138.7C560,139,640,117,720,101.3C800,85,880,75,960,85.3C1040,96,1120,128,1200,154.7C1280,181,1360,203,1400,213.3L1440,224L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #39614e;"></path></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1440 288" style="enable-background:new 0 0 1440 288;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#477961;}
+</style>
+<path class="st0" d="M240,64c71.3,3,160,43,240,42.7C560,107,640,85,720,69.3C800,53,880,43,960,53.3c80,10.7,160,42.7,240,69.4
+	c75.2,24.3,124.3,26.5,181.2,26.8l58.8-0.3V288h-40c-40,0-120,0-200,0s-160,0-240,0s-160,0-240,0s-160,0-240,0s-160,0-240,0
+	s-160,0-200,0H0V56"/>
+</svg>

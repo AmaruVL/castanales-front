@@ -8,7 +8,6 @@ export const DatosParcela = ({ data }) => {
         value="Código de parcela:"
         content={data.codigo_de_la_parcela}
       />
-      <Subtitle value="Código de árbol:" content={data.codigo_ant} />
       <Subtitle value="Ubicación">
         <Subtitle value="Sector:" content={data.sector} />
         <Subtitle value="Distrito:" content={data.distrito} />

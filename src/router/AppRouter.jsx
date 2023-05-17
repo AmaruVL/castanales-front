@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Inicio } from '../pages/home/Inicio';
 import { Error } from '../pages/error/Error';
-import { ConsultaArbol } from '../pages/queries/ConsultaArbol';
+import { ConsultaTraza } from '../pages/queries/ConsultaTraza';
 
 const router = createBrowserRouter([
   {
@@ -11,7 +11,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/consultatraza/:idArbol',
-    element: <ConsultaArbol />,
+    element: <ConsultaTraza />,
   },
 ]);
 

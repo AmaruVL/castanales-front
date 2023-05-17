@@ -5,7 +5,9 @@ import { VisibilityRounded } from '@mui/icons-material';
 export const Observaciones = ({ data }) => {
   return (
     <Title value="Observaciones" Icon={VisibilityRounded}>
-      <Typography>{data.observaciones}</Typography>
+      <Typography>
+        {data.observaciones === '' ? 'Ninguna' : data.observaciones}
+      </Typography>
     </Title>
   );
 };
