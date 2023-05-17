@@ -1,5 +1,4 @@
 import { CircularProgress, Divider, Paper } from '@mui/material';
-// import qrExample from '../../../../assets/qrs/qrExample.svg';
 import {
   DatosParcela,
   DatosComunero,
