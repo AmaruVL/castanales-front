@@ -3,7 +3,7 @@ import { GetById } from "../services/traza";
 
 const key = "traza";
 
-export const useGetByIdArbol = (idArbol, enabled = true) =>
-  useQuery([key], GetById(idArbol), {
+export const useGetTrazaByIdArbol = (idArbol, enabled = true) =>
+  useQuery([key], async () => await GetById(idArbol), {
     enabled, //Realizar solicitud cada cierto tiempo
   });
