@@ -27,8 +27,8 @@ export const PaginaTraza = () => {
   }
 
   // Generar codigo QR
-  const currentURL = window.location.href
-  const qrCode = generateQR(currentURL)
+  const currentURL = window.location.href.replace(/^https?:\/\//, '');
+  const qrCode = generateQR(currentURL);
 
   return (
     <Paper className="p-5 flex flex-col drop-shadow-2xl" elevation={0}>

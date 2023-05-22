@@ -3,6 +3,6 @@ import { useUsuario } from "../hooks/useUsuario";
 
 export const GetById = async (id) => {
   const { full_path: fullPath } = useUsuario();
-  const { data } = await axios.get(`http://${fullPath}/traza/${id}`);
+  const { data } = await axios.get(`http://${fullPath}/api/trazabilidad/${id}`);
   return data;
 };

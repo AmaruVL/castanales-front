@@ -1,9 +1,22 @@
-import { MenuItem, TextField } from '@mui/material'
-import { Controller } from 'react-hook-form'
+import { MenuItem, TextField } from '@mui/material';
+import { Controller } from 'react-hook-form';
 
-const Input = ({ control, id, label, disabled = false, placeholder, multiline = false, rows = 1, type = 'text', data = [], inputProps = null, helperText = '', valorChancado }) => {
-  return (type === 'select'
-    ? <Controller
+const Input = ({
+  control,
+  id,
+  label,
+  disabled = false,
+  placeholder,
+  multiline = false,
+  rows = 1,
+  type = 'text',
+  data = [],
+  inputProps = null,
+  helperText = '',
+  valorChancado,
+}) => {
+  return type === 'select' ? (
+    <Controller
       name={id}
       control={control}
       render={({ field: { onChange, value } }) => (
@@ -17,20 +30,23 @@ const Input = ({ control, id, label, disabled = false, placeholder, multiline = 
           fullWidth
           placeholder={placeholder}
           InputProps={inputProps}
-          helperText={helperText}
-        >
-          {data.map((elemento, index) =>
-            <MenuItem key={index} value={elemento.value}>{elemento.denominacion}</MenuItem>)}
+          helperText={helperText}>
+          {data.map((elemento, index) => (
+            <MenuItem key={index} value={elemento.value}>
+              {elemento.denominacion}
+            </MenuItem>
+          ))}
         </TextField>
       )}
     />
-    : <Controller
+  ) : (
+    <Controller
       name={id}
       control={control}
       render={({ field: { onChange, value } }) => (
         <TextField
           label={label}
-          value={valorChancado? valorChancado : value}
+          value={valorChancado ? valorChancado : value}
           onChange={onChange}
           variant="outlined"
           size="small"
@@ -44,7 +60,8 @@ const Input = ({ control, id, label, disabled = false, placeholder, multiline = 
           helperText={helperText}
         />
       )}
-    />)
-}
+    />
+  );
+};
 
-export default Input
+export default Input;
