@@ -16,7 +16,7 @@ export const DataGridStyle = ({
         height: height,
         width: '100%',
         '& .super-app-theme--header': {
-          backgroundColor: '#99D3D6',
+          backgroundColor: '#fff',
         },
       }}>
       {checkboxSelection ? (

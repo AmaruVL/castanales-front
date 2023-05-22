@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Inicio } from '../pages/home/Inicio';
 import { Error } from '../pages/error/Error';
-import { ConsultaTraza } from '../pages/queries/ConsultaTraza';
+import { LayoutQuery, ConsultaTraza, ListadoTraza } from '../pages/queries';
 
 const router = createBrowserRouter([
   {
@@ -10,8 +10,18 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: '/consultatraza/:idArbol',
-    element: <ConsultaTraza />,
+    path: '/consultatraza',
+    element: <LayoutQuery />,
+    children: [
+      {
+        path: '',
+        element: <ListadoTraza />,
+      },
+      {
+        path: ':idArbol',
+        element: <ConsultaTraza />,
+      },
+    ],
   },
 ]);
 
