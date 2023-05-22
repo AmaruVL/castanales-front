@@ -8,6 +8,7 @@ export const DataGridStyle = ({
   experimentalFeatures,
   checkboxSelection = false,
   setAlumnosSeleccionados,
+  pageSizeOptions = [25,50,100],
   getRowId,
 }) => {
   return (
@@ -26,6 +27,7 @@ export const DataGridStyle = ({
           checkboxSelection={checkboxSelection}
           experimentalFeatures={experimentalFeatures}
           getRowId={getRowId}
+          pageSizeOptions={pageSizeOptions}
           onSelectionModelChange={(itm) => {
             setAlumnosSeleccionados(itm);
           }}
@@ -35,6 +37,7 @@ export const DataGridStyle = ({
           rows={rows}
           columns={columns}
           experimentalFeatures={experimentalFeatures}
+          pageSizeOptions={pageSizeOptions}
           getRowId={getRowId}
         />
       )}

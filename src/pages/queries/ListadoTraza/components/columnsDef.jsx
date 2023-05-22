@@ -8,7 +8,7 @@ export const columnsDef = [
     headerName: 'Cod. Árbol',
     headerClassName: 'super-app-theme--header',
     flex: 0.2,
-    minWidth: 150,
+    minWidth: 140,
     align: 'center',
     headerAlign: 'center',
     disableColumnMenu: true,
@@ -18,7 +18,7 @@ export const columnsDef = [
     headerName: 'DNI/RUC',
     headerClassName: 'super-app-theme--header',
     flex: 0.2,
-    minWidth: 150,
+    minWidth: 130,
     align: 'center',
     headerAlign: 'center',
     disableColumnMenu: true,
@@ -35,12 +35,17 @@ export const columnsDef = [
   },
   {
     field: 'coordenadas_utm',
-    headerName: 'Coordenadas UTM',
     headerClassName: 'super-app-theme--header',
-    width: 150,
+    width: 170,
     align: 'center',
     headerAlign: 'center',
     disableColumnMenu: true,
+    renderHeader: () => (
+      <div className="flex items-center flex-col font-medium">
+        <span className="-mb-4">Coordenadas UTM</span>
+        <span className="-mt-4">(Este, Norte)</span>
+      </div>
+    ),
   },
   {
     field: 'observaciones',
