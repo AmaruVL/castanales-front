@@ -3,7 +3,7 @@ import { InputAdornment, TextField } from '@mui/material';
 
 export const BarraBusqueda = ({ datos, setResultados }) => {
   const onSearchChange = (event) => {
-    const searchValue = event.target.value;
+    const searchValue = event.target.value.trim();
     if (!searchValue) return setResultados(datos);
 
     const resultadosArray = datos.filter(

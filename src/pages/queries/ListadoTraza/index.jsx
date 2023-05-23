@@ -9,14 +9,27 @@ export const ListadoTraza = () => {
   const [trazas, setTrazas] = useState([]);
   const [resultadosBusqueda, setResultadosBusqueda] = useState([]);
 
+  const getDataTraza = async () => {
+    // Obtener datos de sessionStorage
+    const datosString = sessionStorage.getItem('datosTraza');
+    if (datosString) {
+      return JSON.parse(datosString);
+    }
+    //Obtener datos del servidor
+    const { data } = await refetch();
+    const datosTraza = data.map(({ este, norte, ...rest }) => ({
+      ...rest,
+      coordenadas_utm: `${este}, ${norte}`,
+    }));
+    // Guardar datos en sessionStorage
+    sessionStorage.setItem('datosTraza', JSON.stringify(datosTraza));
+    return datosTraza;
+  };
+
   useEffect(() => {
-    refetch().then(({ data = [] }) => {
-      const newData = data.map(({ este, norte, ...rest }) => ({
-        ...rest,
-        coordenadas_utm: `${este}, ${norte}`,
-      }));
-      setTrazas(newData);
-      setResultadosBusqueda(newData);
+    getDataTraza().then((data) => {
+      setTrazas(data);
+      setResultadosBusqueda(data);
     });
   }, []);
 
