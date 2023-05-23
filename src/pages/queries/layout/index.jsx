@@ -1,6 +1,6 @@
 import { Paper, Typography } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import waveBottom from '../../../assets/waves/waveBottom.svg';
+import waveBottom from '@/assets/waves/waveBottom.svg';
 
 export const LayoutQuery = () => {
   return (

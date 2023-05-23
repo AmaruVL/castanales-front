@@ -6,7 +6,7 @@ import {
   InfoComplementaria,
   Observaciones,
 } from '../components';
-import { generateQR } from '../../../../helpers/qrCode';
+import { generateQR } from '@/helpers/qrCode';
 
 export const ContenidoTraza = ({ data }) => {
   // Generar codigo QR
@@ -14,7 +14,7 @@ export const ContenidoTraza = ({ data }) => {
   const qrCode = generateQR(currentURL);
 
   return (
-    <div className='flex flex-col'>
+    <div className="flex flex-col">
       <section className="flex justify-between">
         <DatosParcela data={data} />
         <figure className="w-1/5 mr-5 aspect-square max-md:hidden self-center">

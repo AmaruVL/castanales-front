@@ -6,10 +6,11 @@ const key = 'traza';
 export const useGetTrazaByIdArbol = (idArbol, enabled = true) =>
   useQuery([key], async () => await GetById(idArbol), {
     enabled, //Realizar solicitud cada cierto tiempo
+    retry: 2, //Nro de intentos en peticiones fallidas
   });
 
 export const useGetTrazas = (enabled = true) =>
   useQuery([key], GetAll, {
-    enabled, //Realizar peticiones cada cierto tiempo automaticamente
-    retry: 2, //Nro de intentos en peticiones fallidas
+    enabled, 
+    retry: 2,
   });

@@ -1,9 +1,9 @@
-import { Avatar, CircularProgress, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
+import { ErrorMessage } from '@/components/ErrorMessage';
+import { useGetTrazaByIdArbol } from '@/hooks/useTraza';
 import { ContenidoTraza } from './components';
-import { useGetTrazaByIdArbol } from '../../../hooks/useTraza';
-import { CloseRounded } from '@mui/icons-material';
 
 export const ConsultaTraza = () => {
   const { idArbol } = useParams();
@@ -11,18 +11,14 @@ export const ConsultaTraza = () => {
   // Verificar si es un ID correcto
   const regex = /^[A-Z]+[-]\d+[-][A-Z]+$/;
   const isValidId = regex.test(idArbol);
+
   if (!isValidId)
     return (
-      <div className="flex items-center max-md:justify-center gap-4">
-        <Avatar className="bg-[#f67273]">
-          <CloseRounded />
-        </Avatar>
-        {/* <Typography>El Id no es válido</Typography> */}
-
-        <Typography className="text-base">
-          El Id <code className="font-semibold text-[#f67273]">{idArbol}</code> no es válido
-        </Typography>
-      </div>
+      <ErrorMessage
+        msg="El árbol con ID"
+        keyword={idArbol}
+        submsg="no es válido"
+      />
     );
 
   let {
@@ -38,8 +34,6 @@ export const ConsultaTraza = () => {
     refetch();
   }, []);
 
-  console.log({ isValidId, isLoading, isSuccess, isError, error });
-
   return (
     <>
       {isSuccess && <ContenidoTraza data={datosTraza} />}
@@ -49,7 +43,16 @@ export const ConsultaTraza = () => {
           <span>Buscando...</span>
         </div>
       )}
-      {isError && <h1 className="mt-5 h-screen">No se encontró información</h1>}
+      {isError &&
+        (error?.request?.status === 404 ? (
+          <ErrorMessage
+            msg="El árbol con ID"
+            keyword={idArbol}
+            submsg="no existe"
+          />
+        ) : (
+          <ErrorMessage msg="Ocurrió un error" />
+        ))}
     </>
   );
 };

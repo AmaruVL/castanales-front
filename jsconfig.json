@@ -1,0 +1,9 @@
+// Setting alias paths
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+    }
+  }
+}
