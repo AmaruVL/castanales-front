@@ -1,0 +1,5 @@
+.background {
+  background-image: 
+    linear-gradient(to top, #477961ff, #47796189),
+    url('src/assets/images/tambopata.jpg');
+}
