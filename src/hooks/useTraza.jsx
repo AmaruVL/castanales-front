@@ -10,5 +10,6 @@ export const useGetTrazaByIdArbol = (idArbol, enabled = true) =>
 
 export const useGetTrazas = (enabled = true) =>
   useQuery([key], GetAll, {
-    enabled, //Realizar solicitud cada cierto tiempo
+    enabled, //Realizar peticiones cada cierto tiempo automaticamente
+    retry: 2, //Nro de intentos en peticiones fallidas
   });

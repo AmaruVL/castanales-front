@@ -1,23 +1,32 @@
-import { TextField } from '@mui/material';
+import { SearchRounded } from '@mui/icons-material';
+import { InputAdornment, TextField } from '@mui/material';
 
 export const BarraBusqueda = ({ datos, setResultados }) => {
-  const onSearchChange = (e) => {
-    if (!e.target.value) return setSearchResults(datos);
+  const onSearchChange = (event) => {
+    const searchValue = event.target.value;
+    if (!searchValue) return setResultados(datos);
 
     const resultadosArray = datos.filter(
-      (dato) => dato.razon_social.includes(e.target.value.toUpperCase()),
-      // || dato.body.includes(e.target.value)
+      (dato) =>
+        dato.razon_social.includes(searchValue.toUpperCase()) ||
+        dato.dni_ruc.includes(searchValue),
     );
     setResultados(resultadosArray);
   };
   return (
-    <div>
-      <TextField
-        label="Buscar por propietario o coordenadas"
-        fullWidth
-        size="small"
-        onChange={onSearchChange}
-      />
-    </div>
+    <TextField
+      className="mb-5"
+      label="Buscar por DNI/RUC, razón social o coordenadas"
+      fullWidth
+      size="small"
+      onChange={onSearchChange}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <SearchRounded />
+          </InputAdornment>
+        ),
+      }}
+    />
   );
 };

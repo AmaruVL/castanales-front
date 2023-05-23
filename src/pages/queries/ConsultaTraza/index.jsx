@@ -1,54 +1,55 @@
-import { CircularProgress, Divider, Paper } from '@mui/material';
-import {
-  DatosParcela,
-  DatosComunero,
-  DatosArbol,
-  InfoComplementaria,
-  Observaciones,
-} from './components';
+import { Avatar, CircularProgress, Typography } from '@mui/material';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { ContenidoTraza } from './components';
 import { useGetTrazaByIdArbol } from '../../../hooks/useTraza';
-import { generateQR } from '../../../helpers/qrCode';
+import { CloseRounded } from '@mui/icons-material';
 
 export const ConsultaTraza = () => {
   const { idArbol } = useParams();
-  const { data = [], isLoading, isSuccess } = useGetTrazaByIdArbol(idArbol);
 
-  if (isLoading) {
+  // Verificar si es un ID correcto
+  const regex = /^[A-Z]+[-]\d+[-][A-Z]+$/;
+  const isValidId = regex.test(idArbol);
+  if (!isValidId)
     return (
-      <div className="mt-5 flex gap-3 h-screen">
-        <CircularProgress size={25} sx={{ color: '#477961' }} />
-        <span>Buscando...</span>
+      <div className="flex items-center max-md:justify-center gap-4">
+        <Avatar className="bg-[#f67273]">
+          <CloseRounded />
+        </Avatar>
+        {/* <Typography>El Id no es válido</Typography> */}
+
+        <Typography className="text-base">
+          El Id <code className="font-semibold text-[#f67273]">{idArbol}</code> no es válido
+        </Typography>
       </div>
     );
-  }
-  if (!isSuccess) {
-    return <h1 className="mt-5 h-screen">No se encontró información </h1>;
-  }
 
-  // Generar codigo QR
-  const currentURL = window.location.href.replace(/^https?:\/\//, '');
-  const qrCode = generateQR(currentURL);
+  let {
+    data: datosTraza = [],
+    error,
+    refetch,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetTrazaByIdArbol(idArbol, false);
+
+  useEffect(() => {
+    refetch();
+  }, []);
+
+  console.log({ isValidId, isLoading, isSuccess, isError, error });
 
   return (
-    <Paper className="p-5 flex flex-col drop-shadow-2xl h-full" elevation={0}>
-      <div className="flex justify-between">
-        <DatosParcela data={data} />
-        <figure className="w-1/5 mr-5 aspect-square max-md:hidden self-center">
-          <img src={qrCode} />
-        </figure>
-      </div>
-      <Divider className="my-3" />
-      <DatosComunero data={data} />
-      <Divider className="my-3" />
-      <DatosArbol data={data} />
-      <Divider className="my-3" />
-      <InfoComplementaria data={data} />
-      <Divider className="my-3" />
-      <Observaciones data={data} />
-      <figure className="w-2/5 mt-5 max-w-[150px] aspect-square md:hidden self-center ">
-        <img src={qrCode} />
-      </figure>
-    </Paper>
+    <>
+      {isSuccess && <ContenidoTraza data={datosTraza} />}
+      {isLoading && (
+        <div className="mt-5 flex gap-3 h-screen">
+          <CircularProgress size={25} sx={{ color: '#477961' }} />
+          <span>Buscando...</span>
+        </div>
+      )}
+      {isError && <h1 className="mt-5 h-screen">No se encontró información</h1>}
+    </>
   );
 };

@@ -1,5 +1,3 @@
-import { Paper } from '@mui/material';
-import { DataGridStyle } from '../../../components/DataGridStyle';
 import { columnsDef } from './components/columnsDef';
 import { useGetTrazas } from '../../../hooks/useTraza';
 import { useState, useEffect } from 'react';
@@ -19,21 +17,19 @@ export const ListadoTraza = () => {
   }, []);
 
   return (
-    <Paper className="drop-shadow-2xl p-7 pb-16 h-screen w-full" elevation={0}>
-      <BarraBusqueda
-        datos={trazas}
-        setResultados={setResultadosBusqueda}
-      />
+    <>
+      <BarraBusqueda datos={trazas} setResultados={setResultadosBusqueda} />
       <DataGrid
+        className="h-[80vh]"
         rows={resultadosBusqueda || []}
         columns={columnsDef}
-        initialState={{
-          pagination: { paginationModel: { pageSize: 15 } },
-        }}
-        pageSizeOptions={[15, 25, 50]}
         rowHeight={40}
+        initialState={{
+          labelRowPerPage: "hola",
+          pagination: { paginationModel: { pageSize: 50 } },
+        }}
         getRowId={(row) => row.codigo_ant}
       />
-    </Paper>
+    </>
   );
 };
