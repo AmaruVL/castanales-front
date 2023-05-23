@@ -15,7 +15,7 @@ export const Inicio = () => {
             Ordenamiento Castañero de la Comunidad Nativa de Infierno
           </Typography>
           <Link
-            className="bg-[white] hover:bg-primary duration-300 rounded-lg mt-4"
+            className="bg-[white] hover:bg-dark-gray duration-300 rounded-lg mt-4"
             to="/consultatraza">
             <Typography className="text-primary hover:text-[white] font-bold text-lg px-10 py-4">
               Consultar

@@ -8,6 +8,7 @@ export default {
       white: '#fff',
       white2: '#f8fcf6',
       red: '#f67273',
+      'dark-gray': '#3f3d56',
     },
     extend: {
       backgroundImage: {

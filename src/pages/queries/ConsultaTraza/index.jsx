@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
-import { ErrorMessage } from '@/components/ErrorMessage';
+import { ErrorMessage, NoDataImage } from '@/components';
 import { useGetTrazaByIdArbol } from '@/hooks/useTraza';
 import { ContenidoTraza } from './components';
 
@@ -14,11 +14,14 @@ export const ConsultaTraza = () => {
 
   if (!isValidId)
     return (
-      <ErrorMessage
-        msg="El árbol con ID"
-        keyword={idArbol}
-        submsg="no es válido"
-      />
+      <div className="flex flex-col w-full">
+        <ErrorMessage
+          msg="El árbol con ID"
+          keyword={idArbol}
+          submsg="no es válido"
+        />
+        <NoDataImage />
+      </div>
     );
 
   let {
@@ -45,11 +48,14 @@ export const ConsultaTraza = () => {
       )}
       {isError &&
         (error?.request?.status === 404 ? (
-          <ErrorMessage
-            msg="El árbol con ID"
-            keyword={idArbol}
-            submsg="no existe"
-          />
+          <div className="flex flex-col w-full">
+            <ErrorMessage
+              msg="El árbol con ID"
+              keyword={idArbol}
+              submsg="no existe"
+            />
+            <NoDataImage />
+          </div>
         ) : (
           <ErrorMessage msg="Ocurrió un error" />
         ))}

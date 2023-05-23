@@ -10,9 +10,13 @@ export const ListadoTraza = () => {
   const [resultadosBusqueda, setResultadosBusqueda] = useState([]);
 
   useEffect(() => {
-    refetch().then(({ data }) => {
-      setTrazas(data);
-      setResultadosBusqueda(data);
+    refetch().then(({ data = [] }) => {
+      const newData = data.map(({ este, norte, ...rest }) => ({
+        ...rest,
+        coordenadas_utm: `${este}, ${norte}`,
+      }));
+      setTrazas(newData);
+      setResultadosBusqueda(newData);
     });
   }, []);
 

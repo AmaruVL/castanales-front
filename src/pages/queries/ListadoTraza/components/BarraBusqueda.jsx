@@ -9,7 +9,8 @@ export const BarraBusqueda = ({ datos, setResultados }) => {
     const resultadosArray = datos.filter(
       (dato) =>
         dato.razon_social.includes(searchValue.toUpperCase()) ||
-        dato.dni_ruc.includes(searchValue),
+        dato.dni_ruc.includes(searchValue) ||
+        dato.coordenadas_utm.includes(searchValue),
     );
     setResultados(resultadosArray);
   };

@@ -18,7 +18,7 @@ export const LayoutQuery = () => {
         elevation={0}>
         <Outlet />
       </Paper>
-      <footer className="relative flex justify-center max-h-[160px]">
+      <footer className="relative flex justify-center max-h-[160px] w-screen">
         <img className="object-cover object-top w-full" src={waveBottom} />
         <Typography className="text-[white] max-md:text-sm absolute bottom-4 max-sm:bottom-2">
           Todos los derechos reservados - 2023
