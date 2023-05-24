@@ -15,7 +15,7 @@ export const ListadoTraza = () => {
     if (datosString) {
       return JSON.parse(datosString);
     }
-    //Obtener datos del servidor
+    // Obtener datos del servidor
     const { data } = await refetch();
     const datosTraza = data.map(({ este, norte, ...rest }) => ({
       ...rest,

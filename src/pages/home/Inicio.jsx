@@ -1,12 +1,11 @@
 import waveBottom from '@/assets/waves/waveBottom2.svg';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import './styles.css';
 
 export const Inicio = () => {
   return (
     <>
-      <div className="background bg-cover w-full h-screen flex justify-center">
+      <div className="bg-landing bg-cover w-full h-screen flex justify-center">
         <div className="text-[white] absolute top-48 flex flex-col items-center justify-between text-center px-5 h-52 max-md:h-72">
           <Typography className="text-5xl font-bold leading-snug">
             Comunidad Nativa de Infierno

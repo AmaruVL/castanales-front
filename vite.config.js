@@ -9,6 +9,9 @@ export default ({ mode }) => {
 
   return defineConfig({
     plugins: [react()],
+    build: {
+      chunkSizeWarningLimit: 1600,
+    },
     resolve: {
       alias: [
         {

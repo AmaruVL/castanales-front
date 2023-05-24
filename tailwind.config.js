@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        landingImage: "url('/src/assets/images/tambopata.jpg')",
+        landing: "linear-gradient(to top, #477961ff, #47796189), url('/src/assets/images/tambopata.jpg')",
       },
     },
   },
