@@ -1,8 +1,11 @@
 import { ParkRounded } from '@mui/icons-material';
 import { GoogleMap } from '@/components/GoogleMap';
+import { convertUTM2LngLat } from '@/helpers/coordinates';
 import { Title, Subtitle } from '../../components';
 
 export const DatosArbol = ({ data }) => {
+  // Convetir de UTM a Latitud/Longitud
+  const { lat, lng } = convertUTM2LngLat(data.este, data.norte, 19, 'l');
   return (
     <Title value="Datos del árbol" Icon={ParkRounded}>
       <section className="grid md:grid-cols-2">
@@ -26,10 +29,7 @@ export const DatosArbol = ({ data }) => {
             </section>
           </Subtitle>
           <div className="h-[18rem] rounded-xl overflow-hidden md:hidden my-3 -ml-5">
-            <GoogleMap
-              latitude={-12.799697963628589}
-              longitude={-69.2989824303493}
-            />
+            <GoogleMap latitude={lat} longitude={lng} />
           </div>
           <Subtitle value="Condición de árbol">
             <section className="grid md:grid-cols-2">
@@ -56,10 +56,7 @@ export const DatosArbol = ({ data }) => {
           </Subtitle>
         </div>
         <div className="w-full h-[21rem] rounded-xl overflow-hidden max-md:hidden">
-          <GoogleMap
-            latitude={-12.799697963628589}
-            longitude={-69.2989824303493}
-          />
+          <GoogleMap latitude={lat} longitude={lng} />
         </div>
       </section>
       <Subtitle value="Ubicación del árbol a un area deforestada">
