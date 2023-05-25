@@ -1,3 +1,4 @@
+// Configuraciones para despliegue con pm2
 module.exports = {
   apps: [
     {
