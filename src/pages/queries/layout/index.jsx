@@ -6,7 +6,9 @@ export const LayoutQuery = () => {
   return (
     <div className="h-fit min-h-screen flex flex-col justify-between bg-white2">
       <header className="flex bg-primary text-[white] rounded-b-2xl max-md:flex-col text-center drop-shadow-lg">
-        <Link className="md:p-4 max-md:pt-2 font-bold" to="/">
+        <Link
+          className="md:p-4 max-md:pt-2 font-bold hover:bg-dark-gray rounded-b-2xl rounded-tr-2xl duration-300 "
+          to="/">
           Comunidad Nativa de Infierno
         </Link>
         <Typography className="md:absolute md:p-4 md:right-[42%] max-md:pb-1">
@@ -14,7 +16,7 @@ export const LayoutQuery = () => {
         </Typography>
       </header>
       <Paper
-        className="mt-5 mb-10 p-7 h-fit md:w-5/6 w-full grow self-center drop-shadow-2xl"
+        className="mt-5 mb-10 p-10 max-md:p-5 h-fit md:w-5/6 w-full grow self-center drop-shadow-2xl"
         elevation={0}>
         <Outlet />
       </Paper>
