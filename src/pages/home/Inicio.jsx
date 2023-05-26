@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 export const Inicio = () => {
   return (
     <>
-      <div className="bg-landing bg-cover w-full h-screen flex justify-center">
-        <div className="text-[white] absolute top-48 flex flex-col items-center justify-between text-center px-5 h-52 max-md:h-72">
-          <Typography className="text-5xl font-bold leading-snug">
+      <div className="bg-landing bg-cover w-full h-screen flex flex-col justify-between">
+        <div className="h-full flex flex-col justify-center items-center text-center text-white p-5">
+          <Typography className="text-5xl max-md:text-4xl font-bold leading-snug">
             Comunidad Nativa de Infierno
           </Typography>
-          <Typography className="text-2xl font-extralight my-10 leading-normal">
+          <Typography className="text-2xl max-md:text-xl font-extralight my-10 leading-normal">
             Ordenamiento Castañero de la Comunidad Nativa de Infierno
           </Typography>
           <Link
@@ -21,7 +21,7 @@ export const Inicio = () => {
             </Typography>
           </Link>
         </div>
-        <footer className="absolute bottom-0 w-full max-h-[160px] overflow-hidden">
+        <footer className="w-full max-h-[160px] overflow-hidden">
           <img className="object-cover object-top w-full" src={waveBottom} />
         </footer>
       </div>

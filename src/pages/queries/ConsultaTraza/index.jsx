@@ -57,7 +57,10 @@ export const ConsultaTraza = () => {
             <NoDataImage />
           </div>
         ) : (
-          <ErrorMessage msg="Ocurrió un error" />
+          <div className="flex flex-col w-full">
+            <ErrorMessage msg="Algo salió mal, intentelo de nuevo más tarde." />
+            <NoDataImage />
+          </div>
         ))}
     </>
   );
