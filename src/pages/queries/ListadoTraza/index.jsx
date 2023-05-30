@@ -36,6 +36,7 @@ export const ListadoTraza = () => {
   return (
     <>
       <BarraBusqueda datos={trazas} setResultados={setResultadosBusqueda} />
+      {/* TODO: Mostrar spin cuando carga al inicio y cambiar color header*/}
       <DataGrid
         className="h-[80vh]"
         rows={resultadosBusqueda || []}

@@ -28,9 +28,11 @@ export const DatosArbol = ({ data }) => {
               <Subtitle value="Norte:" content={data.norte} />
             </section>
           </Subtitle>
-          <div className="h-[18rem] rounded-xl overflow-hidden md:hidden my-3 -ml-5">
-            <GoogleMap latitude={lat} longitude={lng} />
-          </div>
+          <GoogleMap
+            className="my-3 -ml-5 h-[18rem] overflow-hidden rounded-xl md:hidden"
+            latitude={lat}
+            longitude={lng}
+          />
           <Subtitle value="Condición de árbol">
             <section className="grid md:grid-cols-2">
               <Subtitle value="Productivo:" content={data.productivo} />
@@ -43,23 +45,28 @@ export const DatosArbol = ({ data }) => {
               content={data.produccion_latas}
             />
           </Subtitle>
-          <Subtitle value="Condición del árbol">
+          <Subtitle value="Condición del árbol (fitosanitaria)">
             <section className="grid min-[1220px]:grid-cols-2">
               <Subtitle
-                value="Juvenil o maduro:"
+                value="Etapa de vida:"
                 content={data.juvenil_o_maduro}
               />
-              <Subtitle value="Sano o enfermo:" content={data.sano_o_enfermo} />
+              <Subtitle
+                value="Estado de salud:"
+                content={data.sano_o_enfermo}
+              />
               <Subtitle value="Rama caída:" content={data.rama_caida} />
               <Subtitle value="Lianas:" content={data.lianas} />
             </section>
           </Subtitle>
         </div>
-        <div className="w-full h-[21rem] rounded-xl overflow-hidden max-md:hidden">
-          <GoogleMap latitude={lat} longitude={lng} />
-        </div>
+        <GoogleMap
+          className="h-[21rem] w-full overflow-hidden rounded-xl max-md:hidden"
+          latitude={lat}
+          longitude={lng}
+        />
       </section>
-      <Subtitle value="Ubicación del árbol a un area deforestada">
+      <Subtitle value="Detalles de la ubicación del árbol">
         <section className="grid md:grid-cols-2">
           <Subtitle
             value="Cerca a area deforestada:"
