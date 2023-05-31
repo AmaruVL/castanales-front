@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useGetPersonas, useGetStatsById } from '@/hooks';
-import { Autocomplete } from '@/components/mui/Autocomplete';
+import { Divider } from '@mui/material';
 import { ForestRounded, OpacityRounded } from '@mui/icons-material';
+import { Autocomplete } from '@/components/mui/Autocomplete';
+import { useGetPersonas, useGetStatsById } from '@/hooks';
 import {
   CardStats,
   StatsCondicion,
@@ -10,21 +11,23 @@ import {
   StatsSanidad,
   StatsUbicacion,
 } from './components';
-import { Divider } from '@mui/material';
 
 export const EstadistiasTraza = () => {
-  const [selected, setSelected] = useState([]);
-  const { data: dataPersonas = [], refetch: refetchPersonas } =
-    useGetPersonas(false);
-  const { data: dataStats, refetch: refetchStats } = useGetStatsById(
-    '-1',
+  const { data = [], refetch: refetchPersonas } = useGetPersonas(false);
+  const todosObj = { razon_social: 'TODOS', dni_ruc: '-1' };
+  const dataPersonas = [todosObj, ...data];
+  const [selected, setSelected] = useState([todosObj]);
+  let { data: dataStats, refetch: refetchStats } = useGetStatsById(
+    selected.dni_ruc,
     false,
   );
-
   useEffect(() => {
     refetchPersonas();
-    refetchStats();
   }, []);
+
+  useEffect(() => {
+    refetchStats();
+  }, [selected]);
 
   return (
     <>
@@ -35,9 +38,10 @@ export const EstadistiasTraza = () => {
           propShow="razon_social"
           label="Comunero"
           setSelected={setSelected}
+          defaultValue={todosObj}
         />
       </div>
-      <Divider className="my-8 max-md:my-3" />
+      <Divider className="my-5 max-md:my-3" />
       {!dataStats ? (
         <h1>Cargando</h1>
       ) : (
@@ -54,7 +58,7 @@ export const EstadistiasTraza = () => {
               Icon={OpacityRounded}
             />
           </div>
-          <Divider className="my-8 max-md:my-3" />
+          <Divider className="my-6 max-md:my-3" />
 
           <div className="grid gap-5 gap-x-10 min-[1025px]:grid-cols-2">
             <StatsCondicion data={dataStats.condicionArboles} />
@@ -66,7 +70,7 @@ export const EstadistiasTraza = () => {
               <StatsMobilUbicacion data={dataStats.detallesUbicacion} />
             </div>
           </div>
-          <Divider className="my-8 max-md:my-3" />
+          <Divider className="my-6 max-md:my-3" />
           <div className="max-md:hidden">
             <StatsSanidad data={dataStats.condicionFitosanitaria} />
           </div>

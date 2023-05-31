@@ -7,17 +7,26 @@ export const Autocomplete = ({
   label,
   setSelected,
   className = '',
+  defaultValue = {},
 }) => {
   return (
     <AutocompleteMUI
       className={className}
       disablePortal
-      // size="small"
+      size="small"
       options={data}
+      defaultValue={defaultValue}
       getOptionLabel={(option) => option[propShow]}
+      disableClearable
       onChange={(event, value) => setSelected(value)}
       fullWidth
-      renderInput={(params) => <TextField {...params} label={label} />}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label={label}
+          defaultValue={defaultValue[propShow]}
+        />
+      )}
     />
   );
 };

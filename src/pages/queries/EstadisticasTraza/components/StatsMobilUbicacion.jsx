@@ -25,7 +25,7 @@ export const StatsMobilUbicacion = ({
           dentroAAreaDeforestada.si,
           enEstrada.si,
         ],
-        backgroundColor: ['#f4b907'],
+        backgroundColor: ['#fdba74'],
       },
       {
         label: 'No',
@@ -35,7 +35,7 @@ export const StatsMobilUbicacion = ({
           dentroAAreaDeforestada.no,
           enEstrada.no,
         ],
-        backgroundColor: ['#1871cb'],
+        backgroundColor: ['#3b82f6'],
       },
     ],
   };
@@ -53,7 +53,7 @@ export const StatsMobilUbicacion = ({
   return (
     <>
       <div className="flex flex-col items-center">
-        <Typography className="font-semibold text-dark-gray">
+        <Typography className="my-3 font-semibold text-dark-gray">
           Detalles de ubicación
         </Typography>
         <BarChart

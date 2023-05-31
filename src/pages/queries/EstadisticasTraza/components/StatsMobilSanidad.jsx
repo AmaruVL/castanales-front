@@ -10,37 +10,37 @@ export const StatsMobilSanidad = ({
       {
         label: 'Juvenil',
         data: [etapaVida.juvenil],
-        backgroundColor: ['#b21700'],
+        backgroundColor: ['#b91c1c'],
       },
       {
         label: 'Maduro',
         data: [etapaVida.maduro],
-        backgroundColor: ['#ff2100'],
+        backgroundColor: ['#ef4444'],
       },
       {
         label: 'Sano',
         data: [, estadoSalud.sano],
-        backgroundColor: ['#0066cc'],
+        backgroundColor: ['#1d4ed8'],
       },
       {
         label: 'Enfermo',
         data: [, estadoSalud.enfermo],
-        backgroundColor: ['#009bfe'],
+        backgroundColor: ['#3b82f6'],
       },
       {
         label: 'Muerto',
         data: [, estadoSalud.muerto],
-        backgroundColor: ['#b3b3b3'],
+        backgroundColor: ['#93c5fd'],
       },
       {
         label: 'Sí',
         data: [, , ramaCaida.si, lianas.si],
-        backgroundColor: ['#b29000'],
+        backgroundColor: ['#f97316'],
       },
       {
         label: 'No',
         data: [, , ramaCaida.no, lianas.no],
-        backgroundColor: ['#ffcf00'],
+        backgroundColor: ['#fdba74'],
       },
     ],
   };
@@ -63,7 +63,7 @@ export const StatsMobilSanidad = ({
   return (
     <>
       <div className="mt-5 flex flex-col items-center">
-        <Typography className="font-semibold text-dark-gray">
+        <Typography className="mb-3 font-semibold text-dark-gray">
           Condición de fitosanidad
         </Typography>
         <BarChart

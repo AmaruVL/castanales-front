@@ -25,7 +25,7 @@ export const StatsUbicacion = ({
           dentroAAreaDeforestada.si,
           enEstrada.si,
         ],
-        backgroundColor: ['#f4b907'],
+        backgroundColor: ['#fdba74'],
       },
       {
         label: 'No',
@@ -35,7 +35,7 @@ export const StatsUbicacion = ({
           dentroAAreaDeforestada.no,
           enEstrada.no,
         ],
-        backgroundColor: ['#1871cb'],
+        backgroundColor: ['#3b82f6'],
       },
     ],
   };

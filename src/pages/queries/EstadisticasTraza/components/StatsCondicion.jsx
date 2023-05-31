@@ -7,7 +7,7 @@ export const StatsCondicion = ({ data: { productivo, semillero } }) => {
     datasets: [
       {
         data: [productivo.si, productivo.no],
-        backgroundColor: ['#1871cb', '#49a94d'],
+        backgroundColor: ['#3b82f6', '#22c55e'],
       },
     ],
   };
@@ -17,7 +17,7 @@ export const StatsCondicion = ({ data: { productivo, semillero } }) => {
     datasets: [
       {
         data: [semillero.si, semillero.no],
-        backgroundColor: ['#1871cb', '#49a94d'],
+        backgroundColor: ['#3b82f6', '#22c55e'],
       },
     ],
   };
