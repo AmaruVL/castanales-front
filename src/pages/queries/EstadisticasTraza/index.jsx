@@ -1,26 +1,22 @@
 import { useEffect, useState } from 'react';
-import { Divider } from '@mui/material';
-import { ForestRounded, OpacityRounded } from '@mui/icons-material';
-import { Autocomplete } from '@/components/mui/Autocomplete';
 import { useGetPersonas, useGetStatsById } from '@/hooks';
-import {
-  CardStats,
-  StatsCondicion,
-  StatsMobilSanidad,
-  StatsMobilUbicacion,
-  StatsSanidad,
-  StatsUbicacion,
-} from './components';
+import { ContenidoStats } from './components/ContenidoStats';
+import { CircularProgress } from '@mui/material';
+import { ErrorMessage, NoDataImage } from '@/components';
 
 export const EstadistiasTraza = () => {
   const { data = [], refetch: refetchPersonas } = useGetPersonas(false);
   const todosObj = { razon_social: 'TODOS', dni_ruc: '-1' };
   const dataPersonas = [todosObj, ...data];
   const [selected, setSelected] = useState([todosObj]);
-  let { data: dataStats, refetch: refetchStats } = useGetStatsById(
-    selected.dni_ruc,
-    false,
-  );
+  const {
+    data: dataStats = [],
+    refetch: refetchStats,
+    isError,
+    isSuccess,
+    isLoading,
+  } = useGetStatsById(selected.dni_ruc, false);
+
   useEffect(() => {
     refetchPersonas();
   }, []);
@@ -31,53 +27,25 @@ export const EstadistiasTraza = () => {
 
   return (
     <>
-      <div className="flex w-full justify-center">
-        <Autocomplete
-          className="w-full max-w-[600px]"
-          data={dataPersonas}
-          propShow="razon_social"
-          label="Comunero"
+      {isSuccess && dataStats && (
+        <ContenidoStats
+          dataStats={dataStats}
+          dataPersonas={dataPersonas}
+          todosObj={todosObj}
           setSelected={setSelected}
-          defaultValue={todosObj}
         />
-      </div>
-      <Divider className="my-5 max-md:my-3" />
-      {!dataStats ? (
-        <h1>Cargando</h1>
-      ) : (
-        <>
-          <div className="mb-5 grid gap-5 md:grid-cols-2">
-            <CardStats
-              value={dataStats.totalArboles}
-              text="Total de árboles"
-              Icon={ForestRounded}
-            />
-            <CardStats
-              value={dataStats.totalProduccionCastanas}
-              text="Total producción de castañas (latas)"
-              Icon={OpacityRounded}
-            />
-          </div>
-          <Divider className="my-6 max-md:my-3" />
-
-          <div className="grid gap-5 gap-x-10 min-[1025px]:grid-cols-2">
-            <StatsCondicion data={dataStats.condicionArboles} />
-            <div className="max-md:hidden">
-              <StatsUbicacion data={dataStats.detallesUbicacion} />
-            </div>
-            <div className="md:hidden">
-              <Divider className="my-8 max-md:my-3" />
-              <StatsMobilUbicacion data={dataStats.detallesUbicacion} />
-            </div>
-          </div>
-          <Divider className="my-6 max-md:my-3" />
-          <div className="max-md:hidden">
-            <StatsSanidad data={dataStats.condicionFitosanitaria} />
-          </div>
-          <div className="md:hidden">
-            <StatsMobilSanidad data={dataStats.condicionFitosanitaria} />
-          </div>
-        </>
+      )}
+      {(isLoading || !dataStats) && (
+        <div className="mt-5 flex h-screen gap-3">
+          <CircularProgress size={25} sx={{ color: '#477961' }} />
+          <span>Buscando...</span>
+        </div>
+      )}
+      {isError && (
+        <div className="flex w-full flex-col">
+          <ErrorMessage msg="Algo salió mal, intentelo de nuevo más tarde." />
+          <NoDataImage />
+        </div>
       )}
     </>
   );

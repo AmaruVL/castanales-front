@@ -1,13 +1,17 @@
 import { DoughnutChart } from '@/components/charts';
 import { Typography } from '@mui/material';
 
-export const StatsCondicion = ({ data: { productivo, semillero } }) => {
+export const StatsCondicion = ({ data }) => {
+  //TODO: Mejorar solución
+  const productivo = data?.productivo;
+  const semillero = data?.semillero;
+
   const configProductivo = {
     labels: ['Sí', 'No'],
     datasets: [
       {
-        data: [productivo.si, productivo.no],
-        backgroundColor: ['#3b82f6', '#22c55e'],
+        data: [productivo?.si, productivo?.no],
+        backgroundColor: ['#3b82f6', '#5d9f7f'],
       },
     ],
   };
@@ -16,8 +20,8 @@ export const StatsCondicion = ({ data: { productivo, semillero } }) => {
     labels: ['Sí', 'No'],
     datasets: [
       {
-        data: [semillero.si, semillero.no],
-        backgroundColor: ['#3b82f6', '#22c55e'],
+        data: [semillero?.si, semillero?.no],
+        backgroundColor: ['#3b82f6', '#5d9f7f'],
       },
     ],
   };

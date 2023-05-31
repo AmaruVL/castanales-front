@@ -1,45 +1,49 @@
 import { BarChart } from '@/components/charts';
 import { Typography } from '@mui/material';
 
-export const StatsMobilSanidad = ({
-  data: { estadoSalud, etapaVida, lianas, ramaCaida },
-}) => {
+export const StatsMobilSanidad = ({ data }) => {
+  //TODO: Ocurre error, mejorar esta solución
+  const estadoSalud = data?.estadoSalud;
+  const etapaVida = data?.etapaVida;
+  const lianas = data?.lianas;
+  const ramaCaida = data?.ramaCaida;
+
   const configSanidad = {
     labels: ['Etapa de vida', 'Estado de salud', 'Rama caida', 'Lianas'],
     datasets: [
       {
         label: 'Juvenil',
-        data: [etapaVida.juvenil],
+        data: [etapaVida?.juvenil],
         backgroundColor: ['#b91c1c'],
       },
       {
         label: 'Maduro',
-        data: [etapaVida.maduro],
+        data: [etapaVida?.maduro],
         backgroundColor: ['#ef4444'],
       },
       {
         label: 'Sano',
-        data: [, estadoSalud.sano],
+        data: [, estadoSalud?.sano],
         backgroundColor: ['#1d4ed8'],
       },
       {
         label: 'Enfermo',
-        data: [, estadoSalud.enfermo],
+        data: [, estadoSalud?.enfermo],
         backgroundColor: ['#3b82f6'],
       },
       {
         label: 'Muerto',
-        data: [, estadoSalud.muerto],
+        data: [, estadoSalud?.muerto],
         backgroundColor: ['#93c5fd'],
       },
       {
         label: 'Sí',
-        data: [, , ramaCaida.si, lianas.si],
+        data: [, , ramaCaida?.si, lianas?.si],
         backgroundColor: ['#f97316'],
       },
       {
         label: 'No',
-        data: [, , ramaCaida.no, lianas.no],
+        data: [, , ramaCaida?.no, lianas?.no],
         backgroundColor: ['#fdba74'],
       },
     ],

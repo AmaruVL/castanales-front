@@ -1,7 +1,7 @@
 import { SearchRounded } from '@mui/icons-material';
 import { InputAdornment, TextField } from '@mui/material';
 
-export const BarraBusqueda = ({ datos, setResultados }) => {
+export const BarraBusqueda = ({ datos, setResultados, className = '' }) => {
   const onSearchChange = (event) => {
     const searchValue = event.target.value.trim();
     if (!searchValue) return setResultados(datos);
@@ -16,7 +16,7 @@ export const BarraBusqueda = ({ datos, setResultados }) => {
   };
   return (
     <TextField
-      className="mb-5"
+      className={className}
       label="Buscar por DNI/RUC, razón social o coordenadas"
       fullWidth
       size="small"

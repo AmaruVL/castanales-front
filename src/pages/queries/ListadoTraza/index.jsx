@@ -3,6 +3,9 @@ import { useGetTrazas } from '@/hooks/useTrazabilidad';
 import { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { BarraBusqueda } from './components/BarraBusqueda';
+import { Link } from 'react-router-dom';
+import { Button, Typography } from '@mui/material';
+import { QueryStatsRounded } from '@mui/icons-material';
 
 export const ListadoTraza = () => {
   const { refetch } = useGetTrazas(false);
@@ -35,7 +38,21 @@ export const ListadoTraza = () => {
 
   return (
     <>
-      <BarraBusqueda datos={trazas} setResultados={setResultadosBusqueda} />
+      <div className="mb-5 flex gap-3 max-md:flex-col">
+        <BarraBusqueda
+          className="max-md:order-1"
+          datos={trazas}
+          setResultados={setResultadosBusqueda}
+        />
+        <Link
+          className="flex h-[40px] min-w-[200px] items-center justify-between gap-3 rounded-lg bg-primary px-4 text-white duration-300 hover:bg-dark-gray"
+          to="estadisticas"
+        >
+          <Typography>Ver estadísticas</Typography>
+          <QueryStatsRounded />
+        </Link>
+        {/* <Button variant="contained">Estadísticas</Button> */}
+      </div>
       {/* TODO: Mostrar spin cuando carga al inicio y cambiar color header*/}
       <DataGrid
         className="h-[80vh]"

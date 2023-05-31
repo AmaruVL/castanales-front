@@ -25,7 +25,7 @@ export const ConsultaTraza = () => {
     );
 
   let {
-    data: datosTraza = [],
+    data: datosTraza,
     error,
     refetch,
     isLoading,
@@ -39,8 +39,8 @@ export const ConsultaTraza = () => {
 
   return (
     <>
-      {isSuccess && <ContenidoTraza data={datosTraza} />}
-      {isLoading && (
+      {isSuccess && datosTraza && <ContenidoTraza data={datosTraza} />}
+      {(isLoading || !datosTraza) && (
         <div className="mt-5 flex h-screen gap-3">
           <CircularProgress size={25} sx={{ color: '#477961' }} />
           <span>Buscando...</span>

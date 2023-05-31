@@ -20,13 +20,7 @@ export const Autocomplete = ({
       disableClearable
       onChange={(event, value) => setSelected(value)}
       fullWidth
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label={label}
-          defaultValue={defaultValue[propShow]}
-        />
-      )}
+      renderInput={(params) => <TextField {...params} label={label} />}
     />
   );
 };
