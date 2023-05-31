@@ -4,25 +4,27 @@ import waveBottom from '@/assets/waves/waveBottom.svg';
 
 export const LayoutQuery = () => {
   return (
-    <div className="h-fit min-h-screen flex flex-col justify-between bg-white2">
-      <header className="flex bg-primary text-[white] rounded-b-2xl max-md:flex-col text-center drop-shadow-lg">
+    <div className="flex h-fit min-h-screen flex-col justify-between bg-white2">
+      <header className="flex rounded-b-2xl bg-primary text-center text-[white] drop-shadow-lg max-md:flex-col">
         <Link
-          className="md:p-4 max-md:pt-2 font-bold hover:bg-dark-gray rounded-b-2xl md:rounded-tr-2xl duration-300 "
-          to="/">
+          className="rounded-b-2xl font-bold duration-300 hover:bg-dark-gray max-md:pt-2 md:rounded-tr-2xl md:p-4 "
+          to="/"
+        >
           Comunidad Nativa de Infierno
         </Link>
-        <Typography className="md:absolute md:p-4 md:right-[42%] max-md:pb-1">
+        <Typography className="max-md:pb-1 md:absolute md:right-[42%] md:p-4">
           Consulta de trazabilidad
         </Typography>
       </header>
       <Paper
-        className="mt-5 mb-10 p-10 max-md:p-5 h-fit md:w-5/6 w-full grow self-center drop-shadow-2xl"
-        elevation={0}>
+        className="mb-10 mt-5 h-fit w-full grow self-center p-10 drop-shadow-2xl max-md:p-5 md:w-5/6"
+        elevation={0}
+      >
         <Outlet />
       </Paper>
-      <footer className="relative flex justify-center max-h-[160px]">
-        <img className="object-cover object-top w-full" src={waveBottom} />
-        <Typography className="text-[white] max-md:text-sm absolute bottom-4 max-sm:bottom-2">
+      <footer className="relative flex max-h-[160px] justify-center">
+        <img className="w-full object-cover object-top" src={waveBottom} />
+        <Typography className="absolute bottom-4 text-[white] max-md:text-sm max-sm:bottom-2">
           Todos los derechos reservados - 2023
         </Typography>
       </footer>

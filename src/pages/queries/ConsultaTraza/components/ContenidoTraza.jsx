@@ -6,18 +6,18 @@ import {
   InfoComplementaria,
   Observaciones,
 } from '../components';
-import { generateQR } from '@/helpers/qrCode';
+import { getQRFromLink } from '@/helpers/qrCode';
 
 export const ContenidoTraza = ({ data }) => {
   // Generar codigo QR
-  const currentURL = window.location.href.replace(/^https?:\/\//, '');
-  const qrCode = generateQR(currentURL);
+  const currentURL = window.location.href;
+  const qrCode = getQRFromLink(currentURL);
 
   return (
     <div className="flex flex-col">
       <section className="flex justify-between">
         <DatosParcela data={data} />
-        <figure className="w-1/5 mr-5 aspect-square max-md:hidden self-center">
+        <figure className="mr-5 aspect-square w-1/5 self-center max-md:hidden">
           <img src={qrCode} />
         </figure>
       </section>
@@ -29,7 +29,7 @@ export const ContenidoTraza = ({ data }) => {
       <InfoComplementaria data={data} />
       <Divider className="my-3" />
       <Observaciones data={data} />
-      <figure className="w-2/5 mt-5 max-w-[150px] aspect-square md:hidden self-center ">
+      <figure className="mt-5 aspect-square w-2/5 max-w-[150px] self-center md:hidden ">
         <img src={qrCode} />
       </figure>
     </div>

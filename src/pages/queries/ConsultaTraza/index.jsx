@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 import { ErrorMessage, NoDataImage } from '@/components';
-import { useGetTrazaByIdArbol } from '@/hooks/useTraza';
+import { useGetTrazaByIdArbol } from '@/hooks/useTrazabilidad';
 import { ContenidoTraza } from './components';
 
 export const ConsultaTraza = () => {
@@ -14,7 +14,7 @@ export const ConsultaTraza = () => {
 
   if (!isValidId)
     return (
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <ErrorMessage
           msg="El árbol con ID"
           keyword={idArbol}
@@ -41,14 +41,14 @@ export const ConsultaTraza = () => {
     <>
       {isSuccess && <ContenidoTraza data={datosTraza} />}
       {isLoading && (
-        <div className="mt-5 flex gap-3 h-screen">
+        <div className="mt-5 flex h-screen gap-3">
           <CircularProgress size={25} sx={{ color: '#477961' }} />
           <span>Buscando...</span>
         </div>
       )}
       {isError &&
         (error?.request?.status === 404 ? (
-          <div className="flex flex-col w-full">
+          <div className="flex w-full flex-col">
             <ErrorMessage
               msg="El árbol con ID"
               keyword={idArbol}
@@ -57,7 +57,7 @@ export const ConsultaTraza = () => {
             <NoDataImage />
           </div>
         ) : (
-          <div className="flex flex-col w-full">
+          <div className="flex w-full flex-col">
             <ErrorMessage msg="Algo salió mal, intentelo de nuevo más tarde." />
             <NoDataImage />
           </div>

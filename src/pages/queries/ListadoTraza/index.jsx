@@ -1,5 +1,5 @@
 import { columnsDef } from './components/columnsDef';
-import { useGetTrazas } from '@/hooks/useTraza';
+import { useGetTrazas } from '@/hooks/useTrazabilidad';
 import { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { BarraBusqueda } from './components/BarraBusqueda';

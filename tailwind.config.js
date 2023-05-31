@@ -9,10 +9,12 @@ export default {
       white2: '#f8fcf6',
       red: '#f67273',
       'dark-gray': '#3f3d56',
+      'light-gray': '#707070',
     },
     extend: {
       backgroundImage: {
-        landing: "linear-gradient(to top, #477961ff, #47796189), url('/src/assets/images/tambopata.jpg')",
+        landing:
+          "linear-gradient(to top, #477961ff, #47796189), url('/src/assets/images/tambopata.jpg')",
       },
     },
   },

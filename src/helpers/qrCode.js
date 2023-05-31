@@ -1,6 +1,6 @@
 import QRCode from 'qrcode';
 
-export const generateQR = (link) => {
+export const getQRFromLink = (link) => {
   let qrString;
   QRCode.toString(
     link,
