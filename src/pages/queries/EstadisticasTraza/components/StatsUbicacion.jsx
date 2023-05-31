@@ -43,7 +43,9 @@ export const StatsUbicacion = ({
   return (
     <>
       <div className="flex h-full flex-col items-center">
-        <Typography className="font-semibold">Detalles de ubicación</Typography>
+        <Typography className="mb-3 font-semibold text-dark-gray">
+          Detalles de ubicación
+        </Typography>
         <BarChart
           className="flex h-full w-full justify-center"
           data={configUbicacion}

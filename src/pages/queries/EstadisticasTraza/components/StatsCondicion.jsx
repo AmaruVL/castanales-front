@@ -23,18 +23,26 @@ export const StatsCondicion = ({ data: { productivo, semillero } }) => {
   };
 
   return (
-    <div className="flex h-max w-full flex-col items-center justify-start">
-      <Typography className="font-semibold">
+    <div className="flex w-full flex-col items-center justify-start">
+      <Typography className="mb-3 font-semibold text-dark-gray">
         Condición de los árboles
       </Typography>
-      <section className="grid min-[680px]:grid-cols-2">
+      <section className="grid gap-4 min-[680px]:grid-cols-2">
         <div className="flex w-full flex-col items-center">
-          <Typography className="text-light-gray">Productivo</Typography>
-          <DoughnutChart className="h-full w-full" data={configProductivo} />
+          <Typography className="text-sm text-light-gray">
+            Productivo
+          </Typography>
+          <DoughnutChart
+            className="h-full max-h-[260px] w-full"
+            data={configProductivo}
+          />
         </div>
         <div className="flex w-full flex-col items-center">
-          <Typography className="text-light-gray">Semillero</Typography>
-          <DoughnutChart className="h-full w-full" data={configSemillero} />
+          <Typography className="text-sm text-light-gray">Semillero</Typography>
+          <DoughnutChart
+            className="h-full max-h-[260px] w-full"
+            data={configSemillero}
+          />
         </div>
       </section>
     </div>

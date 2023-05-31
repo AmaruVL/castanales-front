@@ -66,7 +66,7 @@ export const StatsSanidad = ({
   return (
     <>
       <div className="mt-5 flex flex-col items-center">
-        <Typography className="font-semibold">
+        <Typography className="mb-3 font-semibold text-dark-gray">
           Condición de fitosanidad
         </Typography>
         <BarChart
