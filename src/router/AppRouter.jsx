@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Inicio } from '../pages/home/Inicio';
 import { Error } from '../pages/error/Error';
+import { LayoutQuery } from '../pages/layout/LayoutQuery';
 import {
-  LayoutQuery,
   ConsultaTraza,
   ListadoTraza,
   EstadistiasTraza,

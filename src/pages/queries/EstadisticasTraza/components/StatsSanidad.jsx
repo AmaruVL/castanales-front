@@ -1,7 +1,7 @@
 import { BarChart } from '@/components/charts';
 import { Typography } from '@mui/material';
 
-export const StatsSanidad = (data) => {
+export const StatsSanidad = ({ data }) => {
   //TODO: Ocurre error, mejorar esta solución
   const estadoSalud = data?.estadoSalud;
   const etapaVida = data?.etapaVida;

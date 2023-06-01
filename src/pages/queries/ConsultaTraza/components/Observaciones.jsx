@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import { Title } from '../../components';
+import { Title } from '@/components/custom';
 import { VisibilityRounded } from '@mui/icons-material';
 
 export const Observaciones = ({ data }) => {

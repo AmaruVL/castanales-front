@@ -19,11 +19,11 @@ export const EstadistiasTraza = () => {
 
   useEffect(() => {
     refetchPersonas();
-  }, []);
+  }, [refetchPersonas]);
 
   useEffect(() => {
     refetchStats();
-  }, [selected]);
+  }, [refetchStats, selected]);
 
   return (
     <>

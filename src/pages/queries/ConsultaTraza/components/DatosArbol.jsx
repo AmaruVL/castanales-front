@@ -1,7 +1,7 @@
 import { ParkRounded } from '@mui/icons-material';
 import { GoogleMap } from '@/components/GoogleMap';
 import { convertUTM2LngLat } from '@/helpers/coordinates';
-import { Title, Subtitle } from '../../components';
+import { Title, Subtitle } from '@/components/custom';
 
 export const DatosArbol = ({ data }) => {
   // Convetir de UTM a Latitud/Longitud

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Autocomplete as AutocompleteMUI, TextField } from '@mui/material';
 
 export const Autocomplete = ({

@@ -1,4 +1,4 @@
-import { Title, Subtitle } from '../../components';
+import { Title, Subtitle } from '@/components/custom';
 import { LocationOnRounded } from '@mui/icons-material';
 
 export const DatosParcela = ({ data }) => {

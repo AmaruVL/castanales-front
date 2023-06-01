@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { BarraBusqueda } from './components/BarraBusqueda';
 import { Link } from 'react-router-dom';
-import { Button, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { QueryStatsRounded } from '@mui/icons-material';
 
 export const ListadoTraza = () => {
@@ -51,7 +51,6 @@ export const ListadoTraza = () => {
           <Typography>Ver estadísticas</Typography>
           <QueryStatsRounded />
         </Link>
-        {/* <Button variant="contained">Estadísticas</Button> */}
       </div>
       {/* TODO: Mostrar spin cuando carga al inicio y cambiar color header*/}
       <DataGrid

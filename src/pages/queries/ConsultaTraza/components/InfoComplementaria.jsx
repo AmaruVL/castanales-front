@@ -1,4 +1,4 @@
-import { Title, Subtitle } from '../../components';
+import { Title, Subtitle } from '@/components/custom';
 import { AddCircleRounded } from '@mui/icons-material';
 
 export const InfoComplementaria = ({ data }) => {
